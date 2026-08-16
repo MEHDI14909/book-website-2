@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verse — Browse & Select Premium E-Books</title>
+    <meta
+      name="description"
+      content="Verse is a modern e-book store. Find the best e-books from your favorite writers, explore hundreds of books across every category and enjoy up to 50% off."
+    />
+    <meta property="og:title" content="Verse — Browse & Select Premium E-Books" />
+    <meta
+      property="og:description"
+      content="Explore hundreds of curated e-books across every category, with up to 50% discount."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__book"><span></span><span></span><span></span></div>
+      <p class="preloader__text">Verse</p>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+      <div class="container header__inner">
+        <a href="#hero" class="logo" aria-label="Verse home">
+          <span class="logo__mark" aria-hidden="true">V</span>
+          <span class="logo__text">Verse</span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Main navigation">
+          <ul class="nav__list">
+            <li><a class="nav__link active" href="#hero">Home</a></li>
+            <li><a class="nav__link" href="#books">Books</a></li>
+            <li><a class="nav__link" href="#categories">Categories</a></li>
+            <li><a class="nav__link" href="#why">Why Verse</a></li>
+            <li><a class="nav__link" href="#author">Author</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__actions">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+            <span class="icon-btn__sun" aria-hidden="true">☀</span>
+            <span class="icon-btn__moon" aria-hidden="true">☾</span>
+          </button>
+          <a href="#books" class="btn btn--sm btn--primary hide-sm">Explore</a>
+          <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
+        <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
+        <div class="hero__grid-lines" aria-hidden="true"></div>
+
+        <div class="container hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow reveal">Digital library · 2026 edition</p>
+            <h1 class="hero__title reveal" data-delay="1">
+              Browse &amp; Select <span class="grad">E-Books</span> You'll Actually Finish
+            </h1>
+            <p class="hero__text reveal" data-delay="2">
+              Find the best e-books from your favorite writers, explore hundreds of books with all
+              possible categories, take advantage of the 50% discount and much more.
+            </p>
+            <div class="hero__cta reveal" data-delay="3">
+              <a href="#books" class="btn btn--primary">Explore Books</a>
+              <a href="#categories" class="btn btn--ghost">Browse Categories</a>
+            </div>
+            <dl class="hero__stats reveal" data-delay="4">
+              <div><dt>500+</dt><dd>Curated titles</dd></div>
+              <div><dt>12</dt><dd>Genres</dd></div>
+              <div><dt>50%</dt><dd>Max discount</dd></div>
+            </dl>
+          </div>
+
+          <div class="hero__showcase reveal" data-delay="3">
+            <div class="showcase">
+              <div class="showcase__halo" aria-hidden="true"></div>
+              <img
+                class="showcase__main"
+                src="./images/home-book-1.png"
+                alt="Cover of the featured e-book The Silent Horizon"
+                width="360"
+                height="500"
+              />
+              <img class="showcase__float showcase__float--1" src="./images/home-book-2.png" alt="" aria-hidden="true" />
+              <img class="showcase__float showcase__float--2" src="./images/home-book-3.png" alt="" aria-hidden="true" />
+              <img class="showcase__float showcase__float--3" src="./images/home-book-4.png" alt="" aria-hidden="true" />
+              <div class="showcase__chip showcase__chip--top">★ 4.9 average rating</div>
+              <div class="showcase__chip showcase__chip--bottom">New arrivals weekly</div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="hero__perks container">
+          <li><span aria-hidden="true">⇥</span><strong>Free Shipping</strong>Order more than $100</li>
+          <li><span aria-hidden="true">✓</span><strong>Secure Payment</strong>100% secure payment</li>
+          <li><span aria-hidden="true">☏</span><strong>24/7 Support</strong>Call us anytime</li>
+        </ul>
+      </section>
+
+      <!-- FEATURED BOOKS -->
+      <section class="section" id="books">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <p class="eyebrow">The shelf</p>
+              <h2 class="section__title">Featured Books</h2>
+            </div>
+            <div class="tools">
+              <label class="search" for="search">
+                <span aria-hidden="true">⌕</span>
+                <input id="search" type="search" placeholder="Search by title or author" autocomplete="off" />
+              </label>
+            </div>
+          </div>
+
+          <div class="filters reveal" id="filters" role="tablist" aria-label="Filter books by category"></div>
+
+          <div class="books" id="booksGrid"></div>
+          <p class="empty" id="emptyState" hidden>No books match your search. Try another title or author.</p>
+        </div>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="section section--tint" id="categories">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <p class="eyebrow">Find your lane</p>
+              <h2 class="section__title">Popular Categories</h2>
+            </div>
+          </div>
+          <div class="cats" id="cats"></div>
+        </div>
+      </section>
+
+      <!-- WHY CHOOSE US -->
+      <section class="section" id="why">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <p class="eyebrow">Why Verse</p>
+              <h2 class="section__title">Built for readers, not algorithms</h2>
+            </div>
+          </div>
+          <div class="features">
+            <article class="feature reveal">
+              <span class="feature__icon" aria-hidden="true">◈</span>
+              <h3>Curated Books</h3>
+              <p>Every title is hand-picked and read before it reaches the shelf — no filler.</p>
+            </article>
+            <article class="feature reveal" data-delay="1">
+              <span class="feature__icon" aria-hidden="true">⌕</span>
+              <h3>Easy Discovery</h3>
+              <p>Search, filter and preview instantly. Find your next read in under a minute.</p>
+            </article>
+            <article class="feature reveal" data-delay="2">
+              <span class="feature__icon" aria-hidden="true">❖</span>
+              <h3>Different Genres</h3>
+              <p>Fiction, mystery, business, sci-fi, poetry and more — all possible categories.</p>
+            </article>
+            <article class="feature reveal" data-delay="3">
+              <span class="feature__icon" aria-hidden="true">✦</span>
+              <h3>Quality Recommendations</h3>
+              <p>Suggestions built from real reader notes, not from what sells the fastest.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPOTLIGHT / DISCOUNT SHOWCASE -->
+      <section class="spotlight" id="spotlight">
+        <div class="container spotlight__inner">
+          <div class="spotlight__art reveal">
+            <img src="./images/discount-book-1.png" alt="Cover of the spotlight book" class="spotlight__img" />
+            <img src="./images/discount-book-2.png" alt="" aria-hidden="true" class="spotlight__img spotlight__img--back" />
+          </div>
+          <div class="spotlight__copy reveal" data-delay="1">
+            <p class="eyebrow">Book showcase</p>
+            <h2 class="section__title">Up To 50% Discount</h2>
+            <p>
+              Take advantage of the discount days we have for you, buy books from your favorite
+              writers — the more you buy, the more discounts we have for you.
+            </p>
+            <ul class="spotlight__list">
+              <li><strong>$11.99</strong> <s>$19.99</s> on featured titles</li>
+              <li><strong>$7.99</strong> <s>$14.99</s> on new arrivals</li>
+            </ul>
+            <a href="#books" class="btn btn--primary">Shop Now</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- AUTHOR -->
+      <section class="section section--tint" id="author">
+        <div class="container author">
+          <div class="author__card reveal">
+            <img src="./images/testimonial-2.png" alt="Portrait of author Rial Loz" class="author__avatar" />
+            <div>
+              <p class="eyebrow">Author of the month</p>
+              <h2 class="section__title">Rial Loz</h2>
+              <p class="author__quote">
+                “The best website to buy books — the purchase is very easy to make and has great
+                discounts.”
+              </p>
+              <p class="author__bio">
+                Rial writes long-form fiction and essays about the quiet edges of modern life. Five
+                titles on the Verse shelf, translated into nine languages, and a weekly letter for
+                readers who like their stories slow and precise.
+              </p>
+              <div class="author__meta">
+                <div><strong>5</strong><span>Books on Verse</span></div>
+                <div><strong>9</strong><span>Languages</span></div>
+                <div><strong>4.9</strong><span>Reader rating</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER -->
+      <section class="section" id="newsletter">
+        <div class="container">
+          <div class="news reveal">
+            <div class="news__copy">
+              <h2 class="section__title">One good book, every Sunday</h2>
+              <p>Join the letter for new arrivals, reader notes and early access to discount days.</p>
+            </div>
+            <form class="news__form" id="newsForm" novalidate>
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" />
+              <button class="btn btn--primary" type="submit">Subscribe</button>
+              <p class="news__msg" id="newsMsg" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="#hero" class="logo">
+            <span class="logo__mark" aria-hidden="true">V</span><span class="logo__text">Verse</span>
+          </a>
+          <p>Browse and select e-books from your favorite writers, in every possible category.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer navigation">
+          <h3>Navigate</h3>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#books">Featured Books</a></li>
+            <li><a href="#spotlight">Discounts</a></li>
+            <li><a href="#author">Author</a></li>
+          </ul>
+        </nav>
+        <div class="footer__col">
+          <h3>Categories</h3>
+          <ul id="footerCats"></ul>
+        </div>
+        <div class="footer__col">
+          <h3>Social</h3>
+          <ul class="footer__social">
+            <li><a href="#" aria-label="Verse on Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="Verse on X">X / Twitter</a></li>
+            <li><a href="#" aria-label="Verse on Goodreads">Goodreads</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>© <span id="year"></span> Verse E-Books. All rights reserved.</p>
+        <p>Made for readers.</p>
+      </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+    <!-- BOOK MODAL -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="document">
+        <button class="modal__close" data-close aria-label="Close book details">×</button>
+        <div class="modal__art"><img id="modalImg" src="" alt="" /></div>
+        <div class="modal__body">
+          <span class="tag" id="modalCat"></span>
+          <h2 id="modalTitle"></h2>
+          <p class="modal__author" id="modalAuthor"></p>
+          <p class="modal__desc" id="modalDesc"></p>
+          <ul class="modal__meta" id="modalMeta"></ul>
+          <div class="modal__price">
+            <strong id="modalPrice"></strong><s id="modalOld"></s>
+          </div>
+          <button class="btn btn--primary" type="button">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
